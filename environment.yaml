@@ -1,0 +1,17 @@
+name: private_detector
+channels:
+  - conda-forge
+  - nvidia
+  - anaconda
+dependencies:
+  - python=3.8.*
+  - cudnn=8.0.*
+  - cudatoolkit=11.0.*
+  - pip=20.2.*
+  - pip:
+    - tensorflow-gpu==2.4.*
+    - pandas==1.1.5
+    - openpyxl==3.0.7
+    - tensorflow_addons==0.13.0
+    - protobuf==3.20.1
+    - pyyaml==6.0
