@@ -2,11 +2,11 @@
 
 This is the repo for Bumble's *Private Detector*™ model - an image classifier that can detect lewd images.
 
-The internal repo has been heavily refactored and released as a fully open-source project to allow for the wider community to use and finetune a Private Detector model of their own
+The internal repo has been heavily refactored and released as a fully open-source project to allow for the wider community to use and finetune a Private Detector model of their own. You can download the pretrained SavedModel and checkpoint [here](https://storage.googleapis.com/private_detector/private_detector.zip)
 
 ## Model
 
-The SavedModel can be found in `saved_model/`, ensure you have [Git LFS](https://git-lfs.github.com/) installed to pull the full files.
+The SavedModel can be found in `saved_model/` within `private_detector.zip` above
 
 The model is based on Efficientnet-v2 and trained on our internal dataset of lewd images - more information can be found at the whitepaper [here](pending)
 
@@ -49,7 +49,7 @@ python3 inference.py \
 
 ## Additional Training
 
-You can finetune the model yourself on your own data, to do so is fairly simple - though you will need the checkpoint files as can be found in `saved_checkpoint/`
+You can finetune the model yourself on your own data, to do so is fairly simple - though you will need the checkpoint files as can be found in `saved_checkpoint/` in `private_detector.zip`
 
 Set up a JSON file with links to your image path lists for each class:
 
