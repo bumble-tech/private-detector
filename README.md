@@ -8,7 +8,7 @@ The internal repo has been heavily refactored and released as a fully open-sourc
 
 The SavedModel can be found in `saved_model/` within `private_detector.zip` above
 
-The model is based on Efficientnet-v2 and trained on our internal dataset of lewd images - more information can be found at the whitepaper [here](https://bumble.com/en/the-buzz/bumble-open-source-private-detector-ai-cyberflashing-dick-pics)
+The model is based on Efficientnet-v2 and trained on our internal dataset of lewd images - more information can be found at the whitepaper [here](https://bumble.com/en/the-buzz/bumble-open-source-private-detector-ai-cyberflashing-dick-pics) or [here](https://medium.com/bumble-tech/bumble-inc-open-sources-private-detector-and-makes-another-step-towards-a-safer-internet-for-women-8e6cdb111d81)
 
 ## Inference
 
