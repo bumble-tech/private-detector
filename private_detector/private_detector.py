@@ -264,7 +264,7 @@ class PrivateDetector():
                            eval_dataset: ImageDataset,
                            steps_per_eval_epoch: int) -> None:
         """
-        Run inital validation with validation set, this is used to change the metrics
+        Run initial validation with validation set, this is used to change the metrics
         of the model so it's easier to pick up where the training left off
 
         Parameters
