@@ -405,7 +405,7 @@ class FusedMBConvBlock(MBConvBlock):
 
 
 class Stem(tf.keras.layers.Layer):
-  """Stem layer at the begining of the network."""
+  """Stem layer at the beginning of the network."""
 
   def __init__(self, mconfig, stem_filters, name=None):
     super().__init__(name=name)
