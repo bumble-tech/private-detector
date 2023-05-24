@@ -12,7 +12,18 @@ The model is based on Efficientnet-v2 and trained on our internal dataset of lew
 
 ## Inference
 
-Inference is pretty simple and an example has been given in `inference.py`
+Inference is pretty simple and an example has been given in `inference.py`. The model is released as a SavedModel so it can be deployed in many different ways, but here's a quick runthrough of one way to get it working for those less familiar with Python/Tensorflow.
+
+First you need to install [Python](https://www.python.org/downloads/) and [Conda](https://conda.io/projects/conda/en/latest/user-guide/install/index.html) on your system and go to the Terminal/Command Prompt on your machine
+
+Then you can use the `environment.yml` file to install the necessary packages to run the inference.
+
+```sh
+conda env create -f environment.yml
+conda activate private_detector
+```
+
+Once that's set up, you can run the inference script. Simply replace the sample `.jpg` file paths below with your own
 
 ```sh
 python3 inference.py \
