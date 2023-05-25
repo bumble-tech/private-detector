@@ -2,7 +2,7 @@
 
 This is the repo for Bumble's *Private Detector*™ model - an image classifier that can detect lewd images.
 
-The internal repo has been heavily refactored and released as a fully open-source project to allow for the wider community to use and finetune a Private Detector model of their own. You can download the pretrained SavedModel and checkpoint [here](https://storage.googleapis.com/private_detector/private_detector.zip)
+The internal repo has been heavily refactored and released as a fully open-source project to allow for the wider community to use and finetune a Private Detector model of their own. You can download the pretrained SavedModel, [Frozen Model](https://github.com/bumble-tech/private-detector/issues/7) and checkpoint [here](https://storage.googleapis.com/private_detector/private_detector_with_frozen.zip)
 
 ## Model
 
