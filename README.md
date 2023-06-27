@@ -16,10 +16,10 @@ Inference is pretty simple and an example has been given in `inference.py`. The 
 
 First you need to install [Python](https://www.python.org/downloads/) and [Conda](https://conda.io/projects/conda/en/latest/user-guide/install/index.html) on your system and go to the Terminal/Command Prompt on your machine
 
-Then you can use the `environment.yml` file to install the necessary packages to run the inference.
+Then you can use the `environment.yaml` file to install the necessary packages to run the inference.
 
 ```sh
-conda env create -f environment.yml
+conda env create -f environment.yaml
 conda activate private_detector
 ```
 
