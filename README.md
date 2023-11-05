@@ -58,6 +58,10 @@ python3 inference.py \
 </code>
 </details>
 
+## Serving
+
+See [Tensorflow Serving example](deployments/tensorflow-serving/README.md)
+
 ## Additional Training
 
 You can finetune the model yourself on your own data, to do so is fairly simple - though you will need the checkpoint files as can be found in `saved_checkpoint/` in `private_detector.zip`
