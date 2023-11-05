@@ -12,7 +12,7 @@ from .utils import loss
 from .utils.efficientnet_config import EfficientNetV2Config
 from .utils.effnetv2_model import EffNetV2Model
 from .utils.tensorboard_callback import Callback
-from .utils.preprocess import pad_resize_image, preprocess_for_evaluation
+from .utils.preprocess import preprocess_for_evaluation
 
 
 class PrivateDetector():

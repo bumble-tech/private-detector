@@ -3,13 +3,13 @@
 Tensorflow serving image could be pulled via:
 
 ```shell
-docker pull <image_name>
+docker pull vazhega/private-detector:0.2.0
 ```
 
 Run: 
 
 ```shell
-docker run -p 8501:8501 -e MODEL_NAME=private_detector -t <image_name>
+docker run -p 8501:8501 -e MODEL_NAME=private_detector -t vazhega/private-detector:0.2.0
 ```
 
 Ports exposed:
