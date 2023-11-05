@@ -12,6 +12,7 @@ from .utils import loss
 from .utils.efficientnet_config import EfficientNetV2Config
 from .utils.effnetv2_model import EffNetV2Model
 from .utils.tensorboard_callback import Callback
+from .utils.preprocess import pad_resize_image, preprocess_for_evaluation
 
 
 class PrivateDetector():
@@ -558,3 +559,45 @@ class PrivateDetector():
             inference_model,
             output_dir
         )
+
+    def save_base64_serving(self, output_dir: str, image_size: int = 480, input_dtype: tf.DType = tf.float16):
+        """
+        Save model as a SavedModel ready for inference, accepting base64 image, returning class probabilities
+
+        Parameters
+        ----------
+        output_dir : str
+            Directory to save model to
+        image_size : int
+            Image size which the image was trained with
+        input_dtype: tf.DType
+            Input dtype image was trained with
+        """
+        image_size = image_size or self.eval_image_size
+
+        # This function will act as a tensorflow Lambda layer
+        def preprocess_input_base64(base64_input_bytes):
+            def decode_bytes(img_bytes):
+                img = tf.image.decode_jpeg(img_bytes, channels=3)
+                img = preprocess_for_evaluation(img, image_size, input_dtype)
+                img = tf.image.resize(img, [image_size, image_size])
+                img = tf.image.convert_image_dtype(img,input_dtype)
+                return img
+
+            base64_input_bytes = tf.reshape(base64_input_bytes, (-1,))
+            return tf.map_fn(lambda img_bytes:
+                             decode_bytes(img_bytes),
+                             elems=base64_input_bytes,
+                             fn_output_signature=input_dtype)
+
+        # Adding base64 input layer and a decoding layers
+        inputs = tf.keras.layers.Input(shape=(), dtype=tf.string, name='b64_input_bytes')
+        decode_inputs = tf.keras.layers.Lambda(preprocess_input_base64, name='decode_image_bytes')(inputs)
+        model_base64 = self.model(decode_inputs)
+
+        # Adding a softmax layer on top to get probabilities as the model's response
+        softmax = tf.keras.layers.Softmax()
+        model_base64_softmax = softmax(model_base64)
+        serving_model = tf.keras.Model(inputs, model_base64_softmax)
+
+        tf.saved_model.save(serving_model, output_dir)

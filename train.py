@@ -214,6 +214,7 @@ def train(train_id: str,
     logger.info(f'Training complete, saving model to {train_id}')
 
     model.save(train_id)
+    model.save_base64_serving(train_id, input_dtype=dtype)
 
     logger.info(f'Model saved to {train_id}')
 
